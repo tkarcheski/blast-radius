@@ -1,0 +1,13 @@
+{
+  "name": "blast-radius",
+  "private": true,
+  "type": "module",
+  "description": "Protect ourselves from ourselves: layered sandboxing for OpenCode agents.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/ && python3 -m unittest discover -s tests -v"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "1.18.19"
+  }
+}

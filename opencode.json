@@ -1,0 +1,48 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["./.opencode/plugins/blast-radius.mjs"],
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "ls*": "allow",
+      "cat *": "allow",
+      "pwd": "allow",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "sudo*": "deny",
+      "su *": "deny",
+      "su -*": "deny",
+      "doas *": "deny",
+      "rm -rf /*": "deny",
+      "rm -rf ~*": "deny",
+      "rm -rf $HOME*": "deny",
+      "chmod 777 *": "deny",
+      "chmod -R 777 *": "deny",
+      "curl * | sh*": "deny",
+      "curl * | bash*": "deny",
+      "wget * | sh*": "deny",
+      "wget * | bash*": "deny"
+    },
+    "read": {
+      "*": "allow",
+      "~/.ssh/*": "deny",
+      "~/.aws/*": "deny",
+      "~/.gnupg/*": "deny",
+      "~/.config/gh/*": "deny",
+      "*.env": "deny",
+      "*.env.*": "deny"
+    },
+    "edit": {
+      "*": "allow",
+      "~/.ssh/*": "deny",
+      "~/.aws/*": "deny",
+      "~/.bashrc": "deny",
+      "~/.zshrc": "deny",
+      "~/.profile": "deny",
+      "~/.gitconfig": "deny"
+    },
+    "external_directory": "deny",
+    "webfetch": "ask"
+  }
+}

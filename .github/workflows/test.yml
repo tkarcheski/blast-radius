@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install OpenCode (for full integration tests)
+        run: npm install -g opencode-ai@1.18.19
+      - name: Install dependencies
+        run: npm install --no-fund --no-audit
+      - name: Unit + hook tests
+        run: node --test tests/
+      - name: Full integration tests (real opencode serve)
+        run: python3 -m unittest discover -s tests -v
